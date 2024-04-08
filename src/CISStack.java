@@ -20,12 +20,14 @@ public class CISStack {
 
     // Push. This method pushes a value onto the top of the stack.
     public void push(int val) {
+        if (size == arr.length) throw new IllegalArgumentException("Stack is full.");
         arr[++pointer] = val;
         size++;
     }
 
     // Pop. This method pops a value from the top of the stack.
     public int pop() {
+        if (size == 0) throw new IllegalArgumentException("Stack is empty.");
         int tmp = (int) arr[pointer];
         arr[pointer--] = null;
         size--;
